@@ -10,8 +10,13 @@
     <script src="data.js"></script>
 </head>
 <body>
+    <!-- Price summary bar for the selected metal -->
+    <div id="price-summary" class="price-summary"></div>
     <div class="container">
-        <h1>Precious Metals Price Tracker</h1>
+        <div class="site-header">
+            <h1>Precious Metals Price Tracker</h1>
+            <button id="darkModeToggle" class="toggle-btn" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+        </div>
         <div class="controls">
             <label for="metal-select">Select metal:</label>
             <select id="metal-select">
@@ -23,23 +28,26 @@
                 <option value="zinc">Zinc</option>
             </select>
         </div>
-        <div class="chart-container">
-            <canvas id="price-chart" width="600" height="300"></canvas>
-        </div>
-        <div class="performance">
-            <h2 id="current-price">Current Price: --</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Period</th>
-                        <th>Change (Amount)</th>
-                        <th>Change (%)</th>
-                    </tr>
-                </thead>
-                <tbody id="performance-body">
-                    <!-- Performance rows populated by script.js -->
-                </tbody>
-            </table>
+        <div class="main-section">
+            <div class="chart-container">
+                <canvas id="price-chart" width="600" height="300"></canvas>
+            </div>
+            <div class="performance">
+                <!-- Hidden current price heading retained for accessibility -->
+                <h2 id="current-price" class="visually-hidden">Current Price</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Change (Amount)</th>
+                            <th>Change (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="performance-body">
+                        <!-- Performance rows populated by script.js -->
+                    </tbody>
+                </table>
+            </div>
         </div>
         <p class="footer">
             This website uses sample data for demonstration purposes. To hook up live data, edit

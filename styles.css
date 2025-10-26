@@ -11,15 +11,78 @@ body {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 
-h1 {
-    text-align: center;
+/* Price summary bar displaying current price and daily change */
+.price-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.price-summary .current-value {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-right: 4px;
+}
+.price-summary .change {
+    font-size: 1rem;
+}
+.price-summary .change.positive {
+    color: #2e7d32;
+}
+.price-summary .change.negative {
+    color: #c62828;
+}
+.dark-mode .price-summary {
+    color: #e2e8f0;
+}
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    border: 0;
+}
+
+/* Layout for chart and performance sections */
+.main-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.main-section .chart-container {
+    flex: 3;
+    min-width: 320px;
+}
+.main-section .performance {
+    flex: 2;
+    min-width: 260px;
+}
+
+/* Site header containing the title and dark mode toggle */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #111827;
+}
+.site-header h1 {
+    margin: 0;
     font-size: 28px;
+    font-weight: 600;
     color: #d32f2f;
 }
 
@@ -65,8 +128,11 @@ table th, table td {
 }
 
 table th {
-    background-color: #f0f0f0;
-    font-weight: bold;
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    font-size: 0.8rem;
 }
 
 table tr:nth-child(even) {
@@ -79,6 +145,74 @@ table tr:nth-child(even) {
 
 .negative {
     color: #c62828;
+}
+
+/* Stats bar at the top, similar to CoinGecko */
+/* Stats bar styles removed for silver-price design; retained for backward compatibility but hidden */
+.stats-bar {
+    display: none;
+}
+.stat-item {
+    display: none;
+}
+
+/* Toggle button styles */
+.toggle-btn {
+    background: #334155;
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.25s;
+}
+.toggle-btn:hover {
+    background: #2563eb;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+.dark-mode .container {
+    background: #1e293b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    color: #e2e8f0;
+}
+.dark-mode .site-header {
+    background: #020e23;
+    color: #e2e8f0;
+    border-bottom: 1px solid #1e293b;
+}
+.dark-mode .site-header h1 {
+    color: #f87171;
+}
+.dark-mode .stats-bar {
+    background: #020e23;
+    color: #cbd5e1;
+}
+.dark-mode .toggle-btn {
+    background: #475569;
+    color: #f1f5f9;
+}
+.dark-mode .toggle-btn:hover {
+    background: #2563eb;
+}
+.dark-mode table th {
+    background: #0f172a;
+    color: #94a3b8;
+}
+.dark-mode table tr:nth-child(even) {
+    background: #14213d;
+}
+.dark-mode table tr:nth-child(odd) {
+    background: #0f172a;
+}
+.dark-mode table tr:hover {
+    background: #1e40af;
+    color: #ffffff;
 }
 
 .footer {
