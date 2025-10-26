@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Precious Metals Price Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js for rendering line charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+    <!-- Load the sample dataset into a global variable -->
+    <script src="data.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Precious Metals Price Tracker</h1>
+        <div class="controls">
+            <label for="metal-select">Select metal:</label>
+            <select id="metal-select">
+                <option value="gold">Gold</option>
+                <option value="silver">Silver</option>
+                <option value="platinum">Platinum</option>
+                <option value="palladium">Palladium</option>
+                <option value="copper">Copper</option>
+                <option value="zinc">Zinc</option>
+            </select>
+        </div>
+        <div class="chart-container">
+            <canvas id="price-chart" width="600" height="300"></canvas>
+        </div>
+        <div class="performance">
+            <h2 id="current-price">Current Price: --</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Change (Amount)</th>
+                        <th>Change (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="performance-body">
+                    <!-- Performance rows populated by script.js -->
+                </tbody>
+            </table>
+        </div>
+        <p class="footer">
+            This website uses sample data for demonstration purposes. To hook up live data, edit
+            <code>script.js</code> to fetch prices from a real metals API (e.g. metals-api.com) and provide
+            your API key. The current dataset spans 20 years of randomly generated values.
+        </p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
